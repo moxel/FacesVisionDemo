@@ -1,0 +1,14 @@
+image: py2-caffe
+assets:
+- cnn_age_gender_models_and_data.0.0.2/deploy_age.prototxt
+- cnn_age_gender_models_and_data.0.0.2/age_net.caffemodel
+- cnn_age_gender_models_and_data.0.0.2/mean.binaryproto
+resources:
+  memory: 100M
+input_space: 
+  image: image
+output_space: 
+  age: json
+main:
+  type: python
+  entrypoint: serve_age.py::predict

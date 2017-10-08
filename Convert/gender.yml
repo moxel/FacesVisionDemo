@@ -1,0 +1,15 @@
+image: py2-caffe
+assets:
+- cnn_age_gender_models_and_data.0.0.2/deploy_gender.prototxt
+- cnn_age_gender_models_and_data.0.0.2/gender_net.caffemodel
+- cnn_age_gender_models_and_data.0.0.2/mean.binaryproto
+- genders.txt
+resources:
+  memory: 100M
+input_space: 
+  image: image
+output_space: 
+  gender: json
+main:
+  type: python
+  entrypoint: serve_gender.py::predict

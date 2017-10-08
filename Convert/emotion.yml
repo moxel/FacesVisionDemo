@@ -1,0 +1,13 @@
+image: py2-caffe
+assets:
+- cnn_emotion/deploy.prototxt 
+- cnn_emotion/EmotiW_VGG_S.caffemodel 
+resources:
+  memory: 100M
+input_space: 
+  image: image
+output_space: 
+  emotion: json
+main:
+  type: python
+  entrypoint: serve_emotion.py::predict
